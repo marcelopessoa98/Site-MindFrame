@@ -1,0 +1,462 @@
+/* ========================================================== */
+/* ESTILOS ESPECÍFICOS PARA A ÁREA DO CLIENTE (cliente.html) */
+/* ========================================================== */
+
+/* --- TELA DE LOGIN --- */
+.login-container {
+  /* Centraliza o card de login na tela inteira */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background-dark);
+  padding: 20px;
+}
+
+.login-card {
+  background-color: var(--color-card-dark);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 196, 255, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-logo {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.login-title {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.login-subtitle {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+.form-group-login {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group-login label {
+  display: block;
+  color: var(--color-highlight-blue);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-group-login input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-border-dark);
+  border-radius: 4px;
+  background-color: #2c3e50;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group-login input:focus {
+  border-color: var(--color-highlight-blue);
+  outline: none;
+}
+
+.login-error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.back-link {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.back-link:hover {
+  color: var(--color-highlight-blue);
+}
+
+/* --- GERAIS DO DASHBOARD --- */
+
+.dashboard-container {
+  background-color: var(--color-background-dark);
+  min-height: 100vh;
+  color: #ffffff;
+  padding-bottom: 50px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: var(--color-card-dark);
+  border-bottom: 1px solid var(--color-border-dark);
+}
+
+.dashboard-header .header-left {
+  display: flex;
+  align-items: center;
+}
+
+.company-name-v2 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.dashboard-logo {
+  width: 50px;
+  margin-right: 15px;
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+}
+
+#clientNameDisplay {
+  color: var(--color-highlight-blue);
+  font-weight: 600;
+}
+
+.logout-button {
+  padding: 8px 15px;
+}
+
+.status-tag {
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.status-active {
+  background-color: #00c4ff;
+}
+
+.status-pending {
+  background-color: #ffc107;
+}
+
+.status-paid {
+  background-color: #4cd964;
+}
+
+.btn-details-sm {
+  background-color: var(--color-highlight-blue);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.btn-details-sm:hover {
+  background-color: #0099cc;
+}
+
+/* ========================================================== */
+/* ESTILOS PARA DASHBOARD V3 (Cartões Flutuantes / Tabs) */
+/* ========================================================== */
+
+/* --- NAVEGAÇÃO SUPERIOR (TABS) --- */
+.top-nav-tabs-v3 {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 40px;
+  background-color: #1a1a2e;
+  border-bottom: 1px solid #333;
+}
+
+.nav-tab-v3 {
+  padding: 15px 25px;
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  transition: color 0.3s, border-bottom-color 0.3s;
+}
+
+.nav-tab-v3:hover {
+  color: #ffffff;
+}
+
+.nav-tab-v3.active {
+  color: var(--color-highlight-blue);
+  border-bottom-color: var(--color-highlight-blue);
+  font-weight: 600;
+}
+
+/* --- CONTEÚDO PRINCIPAL V3 --- */
+.main-content-v3 {
+  padding: 30px 40px;
+}
+
+.content-panel-v3 h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  padding-bottom: 5px;
+  font-weight: 700;
+}
+
+.icon-title {
+  color: var(--color-highlight-blue);
+  margin-right: 10px;
+}
+
+/* --- GRID DE CARTÕES --- */
+.card-grid-v3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.info-card-v3,
+.full-width-card-v3,
+.document-list-card-v3,
+.project-details-card-v3,
+.document-section-card-v3,
+.support-info-card-v3 {
+  background-color: var(--color-card-dark);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
+  border: 1px solid transparent;
+}
+
+.info-card-v3 h3 {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-bottom: 10px;
+}
+
+.big-data {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.info-card-v3.primary {
+  border-left: 5px solid var(--color-highlight-blue);
+}
+.info-card-v3.secondary {
+  border-left: 5px solid #4cd964;
+}
+.info-card-v3.warning {
+  border-left: 5px solid #ffc107;
+}
+
+/* --- CARTÕES DE LARGURA TOTAL --- */
+.full-width-card-v3 {
+  grid-column: 1 / -1;
+  margin-top: 20px;
+}
+
+.full-width-card-v3 ul {
+  list-style: none;
+  padding: 0;
+}
+
+.full-width-card-v3 li {
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.task-date {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+/* --- DETALHES DE PROJETOS --- */
+.project-details-card-v3 {
+  margin-bottom: 25px;
+}
+.project-details-card-v3 h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+.project-details-card-v3 p {
+  margin-bottom: 8px;
+  color: var(--color-text-light);
+}
+.project-details-card-v3 strong {
+  color: #ffffff;
+}
+
+/* --- DOCUMENTOS / LISTAS --- */
+.document-list-card-v3 {
+  margin-bottom: 25px;
+}
+
+.doc-item-link-v3 {
+  display: block;
+  padding: 10px 0;
+  color: var(--color-text-light);
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+  transition: color 0.3s;
+}
+
+.doc-item-link-v3:hover {
+  color: var(--color-highlight-blue);
+}
+
+.doc-item-link-v3 i {
+  color: var(--color-highlight-blue);
+  margin-right: 10px;
+}
+
+.docs-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.document-section-card-v3 h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+.document-section-card-v3 p {
+  color: var(--color-text-light);
+  margin-bottom: 15px;
+}
+.upload-area {
+  text-align: center;
+}
+
+.document-section-card-v3.upload-area {
+  border: 1px dashed var(--color-highlight-blue);
+}
+
+/* --- TABELA DE FATURAS --- */
+.billing-table-v3 {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.billing-table-v3 th,
+.billing-table-v3 td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.billing-table-v3 th {
+  background-color: #1a1a2e;
+  color: var(--color-highlight-blue);
+  font-weight: 600;
+}
+
+/* --- SUPORTE --- */
+.support-info-card-v3 p {
+  margin-bottom: 15px;
+  color: var(--color-text-light);
+}
+
+.support-info-card-v3 i {
+  color: var(--color-highlight-blue);
+  margin-right: 10px;
+}
+.support-info-card-v3 strong {
+  color: #ffffff;
+}
+
+.support-note-v3 {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #1a1a2e;
+  border-radius: 8px;
+  color: var(--color-text-light);
+}
+
+/* --- FOOTER --- */
+.dashboard-footer-v3 {
+  text-align: center;
+  padding: 20px 50px;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+/* --- RESPONSIVIDADE BÁSICA --- */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dashboard-header .header-left {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .company-name-v2 {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .top-nav-tabs-v3 {
+    padding: 0 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: flex-start;
+  }
+
+  .nav-tab-v3 {
+    padding: 10px 15px;
+    flex-shrink: 0;
+  }
+
+  .main-content-v3 {
+    padding: 20px;
+  }
+
+  .card-grid-v3 {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width-card-v3,
+  .document-list-card-v3 {
+    grid-column: auto;
+  }
+
+  .docs-grid {
+    grid-template-columns: 1fr;
+  }
+}

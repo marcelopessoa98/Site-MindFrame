@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindFrame | Solicitar Proposta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="proposta-body">
+    <header class="site-header-v7 fixed-header">
+      <div class="header-content-v7">
+        <div class="logo-area-v7">
+          <img
+            src="img/logotipo - mindframe.PNG"
+            alt="Logotipo MindFrame"
+            class="logotipo-site"
+          />
+          <span class="logo-text-v7">MindFrame</span>
+        </div>
+        <div class="header-actions-v7">
+          <a href="index.html" class="btn-secondary-v7">Voltar para Home</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content-site-v7 form-page-content">
+      <section class="proposta-form-container">
+        <form
+          id="propostaForm"
+          class="form-proposta-v7"
+          action="https://formsubmit.co/marcelopessoa.profissional@gmail.com"
+          method="POST"
+        >
+          <h1 class="section-title-v7">Solicitar Análise Técnica e Proposta</h1>
+          <p class="form-intro">
+            Preencha os dados abaixo. Nossa equipe de arquitetos de software
+            analisará seu projeto e retornará em breve.
+          </p>
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="[PROPOSTA] Nova Análise Técnica - MindFrame"
+          />
+
+          <input type="hidden" name="_next" id="formSubmitRedirect" value="" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <div class="form-group">
+            <label for="nome">Nome / Empresa:</label>
+            <input
+              type="text"
+              id="nome"
+              name="Nome_Empresa"
+              aria-label="Seu Nome ou Nome da Empresa"
+            />
+            <span class="form-error-message" id="error-nome"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail de Contato:</label>
+            <input
+              type="email"
+              id="email"
+              name="Email_Contato"
+              aria-label="Seu Email"
+            />
+            <span class="form-error-message" id="error-email"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="servico">Serviço Desejado:</label>
+            <select
+              id="servico"
+              name="Servico_Desejado"
+              aria-label="Serviço Desejado"
+            >
+              <option value="" disabled selected>
+                Selecione um Serviço...
+              </option>
+              <option value="Sistemas_Customizados">
+                Sistemas de Gestão Customizados
+              </option>
+              <option value="Arquitetura_Microservicos">
+                Arquitetura de Microserviços
+              </option>
+              <option value="Infra_DevOps">Infraestrutura e DevOps</option>
+              <option value="Auditoria_Seguranca">
+                Auditoria e Segurança de Código
+              </option>
+              <option value="Outro">
+                Outro (Descreva no campo de Mensagem)
+              </option>
+            </select>
+            <span class="form-error-message" id="error-servico"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Detalhes do Projeto (Escopo):</label>
+            <textarea
+              id="mensagem"
+              name="Detalhes_do_Projeto"
+              rows="6"
+              aria-label="Detalhes do seu projeto"
+            ></textarea>
+            <span class="form-error-message" id="error-mensagem"></span>
+          </div>
+
+          <button type="submit" class="btn-cta-v7 large-cta-v7 form-submit-btn">
+            Solicitar Proposta
+          </button>
+        </form>
+
+        <div
+          id="confirmationMessageRedirect"
+          class="confirmation-message-v7"
+          style="display: none"
+        >
+          <img
+            src="img/logotipo - mindframe.PNG"
+            alt="Logotipo MindFrame"
+            class="logotipo-site-conf"
+          />
+          <h2>Proposta Solicitada com Sucesso!</h2>
+          <p>Em breve nossa equipe retornará com uma proposta personalizada.</p>
+          <a href="index.html" class="btn-secondary-v7">Voltar para Home</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="proposta.js"></script>
+  </body>
+</html>

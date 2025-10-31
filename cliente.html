@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mind Frame - Área do Cliente</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="Área exclusiva para clientes MindFrame. Acompanhe seus projetos, acesse faturas e relatórios técnicos."
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cliente.css" />
+  </head>
+  <body>
+    <div id="loginScreen" class="login-container">
+      <div class="login-card">
+        <img
+          src="img/logotipo - mindframe.PNG"
+          alt="MindFrame Logo"
+          class="login-logo"
+        />
+        <h2 class="login-title">Acesso à Área do Cliente</h2>
+        <p class="login-subtitle">
+          Informe suas credenciais fornecidas pela MindFrame.
+        </p>
+
+        <form id="loginForm" class="login-form">
+          <div class="form-group-login">
+            <label for="username"
+              ><i class="fas fa-user"></i> Usuário (E-mail)</label
+            >
+            <input type="text" id="username" required autocomplete="username" />
+          </div>
+          <div class="form-group-login">
+            <label for="password"><i class="fas fa-lock"></i> Senha</label>
+            <input
+              type="password"
+              id="password"
+              required
+              autocomplete="current-password"
+            />
+          </div>
+
+          <p id="loginError" class="login-error" style="display: none">
+            Credenciais inválidas. Tente novamente ou contate seu gerente.
+          </p>
+
+          <button type="submit" class="btn-cta-v7 login-button">Entrar</button>
+        </form>
+        <a href="index.html" class="back-link">Voltar para o Site Principal</a>
+      </div>
+    </div>
+
+    <div id="dashboard" class="dashboard-container" style="display: none">
+      <header class="dashboard-header">
+        <div class="header-left">
+          <img
+            src="img/logotipo - mindframe.PNG"
+            alt="MindFrame Logo"
+            class="dashboard-logo"
+          />
+          <h1 class="company-name-v2">MindFrame</h1>
+          <span class="welcome-text"
+            >Bem-vindo(a), <span id="clientNameDisplay">Cliente</span>!</span
+          >
+        </div>
+        <div class="header-actions">
+          <button id="logoutButton" class="btn-secondary-v7 logout-button">
+            <i class="fas fa-sign-out-alt"></i> Sair
+          </button>
+        </div>
+      </header>
+
+      <nav class="top-nav-tabs-v3">
+        <a href="#" class="nav-tab-v3 active" data-content="overview">Resumo</a>
+        <a href="#" class="nav-tab-v3" data-content="projects">Projetos</a>
+        <a href="#" class="nav-tab-v3" data-content="billing">Faturas</a>
+        <a href="#" class="nav-tab-v3" data-content="documents">Documentos</a>
+        <a href="#" class="nav-tab-v3" data-content="support">Suporte</a>
+      </nav>
+
+      <main class="main-content-v3">
+        <section id="overview" class="content-panel-v3 active">
+          <h2>
+            <i class="fas fa-tachometer-alt icon-title"></i> Resumo de
+            Acompanhamento
+          </h2>
+          <div class="card-grid-v3">
+            <div class="info-card-v3 primary">
+              <h3>Projeto Ativo</h3>
+              <p class="big-data">Sistema de Microsserviços v2.0</p>
+              <p>
+                Status:
+                <span class="status-tag status-active">Em Desenvolvimento</span>
+              </p>
+            </div>
+
+            <div class="info-card-v3 secondary">
+              <h3>Próxima Entrega</h3>
+              <p class="big-data">Relatório de Migração Cloud</p>
+              <p>Prazo: 31/Dezembro/2025</p>
+            </div>
+
+            <div class="info-card-v3 warning">
+              <h3>Faturas Pendentes</h3>
+              <p class="big-data">1 Fatura</p>
+              <p>R$ 15.000,00 (Vence em 05/11)</p>
+            </div>
+          </div>
+
+          <div class="full-width-card-v3">
+            <h3><i class="fas fa-tasks icon-title"></i> Próximos Milestones</h3>
+            <ul>
+              <li>
+                Finalização da camada de API Gateway.
+                <span class="task-date">15/Nov</span>
+              </li>
+              <li>
+                Revisão de segurança e testes de carga (Load Testing).
+                <span class="task-date">20/Nov</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="projects" class="content-panel-v3" style="display: none">
+          <h2>
+            <i class="fas fa-project-diagram icon-title"></i> Detalhes do
+            Projeto
+          </h2>
+          <div class="project-details-card-v3">
+            <h3>Sistema de Microsserviços v2.0</h3>
+            <p><strong>Arquiteto Líder:</strong> Marcelo Pessoa</p>
+            <p><strong>Tecnologias:</strong> Node.js, Kubernetes, AWS EKS.</p>
+            <p>
+              <strong>Descrição:</strong> Migração completa do monolito legado
+              para uma arquitetura modularizada, aumentando a escalabilidade em
+              5x.
+            </p>
+            <a href="#" class="btn-details-sm">Acessar Repositório Git</a>
+          </div>
+
+          <div class="document-list-card-v3">
+            <h3>Documentação do Projeto</h3>
+            <a href="#" class="doc-item-link-v3"
+              ><i class="fas fa-file-pdf"></i> Arquitetura Inicial.pdf</a
+            >
+            <a href="#" class="doc-item-link-v3"
+              ><i class="fas fa-file-pdf"></i> Especificação da API
+              Gateway.pdf</a
+            >
+          </div>
+        </section>
+
+        <section id="billing" class="content-panel-v3" style="display: none">
+          <h2>
+            <i class="fas fa-file-invoice-dollar icon-title"></i> Histórico de
+            Faturamento
+          </h2>
+          <div class="full-width-card-v3">
+            <table class="billing-table-v3">
+              <thead>
+                <tr>
+                  <th>Referência</th>
+                  <th>Valor</th>
+                  <th>Vencimento</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fatura #2025-10</td>
+                  <td>R$ 15.000,00</td>
+                  <td>05/11/2025</td>
+                  <td class="status-pending">Pendente</td>
+                  <td><a href="#" class="btn-details-sm">Pagar / PDF</a></td>
+                </tr>
+                <tr>
+                  <td>Fatura #2025-09</td>
+                  <td>R$ 15.000,00</td>
+                  <td>05/10/2025</td>
+                  <td class="status-paid">Pago</td>
+                  <td><a href="#" class="btn-details-sm">Baixar PDF</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="documents" class="content-panel-v3" style="display: none">
+          <h2>
+            <i class="fas fa-file-alt icon-title"></i> Central de Documentos
+          </h2>
+          <div class="card-grid-v3 docs-grid">
+            <div class="document-section-card-v3">
+              <h3>Documentos da MindFrame (Downloads)</h3>
+              <a href="#" class="doc-item-link-v3"
+                ><i class="fas fa-file-pdf"></i> Relatório de Performance
+                (Q3)</a
+              >
+              <a href="#" class="doc-item-link-v3"
+                ><i class="fas fa-file-alt"></i> Guia de Boas Práticas DevOps</a
+              >
+            </div>
+            <div class="document-section-card-v3 upload-area">
+              <h3>Documentos do Cliente (Uploads)</h3>
+              <p>Envie documentação necessária para o projeto.</p>
+              <button class="btn-cta-v7 upload-button">
+                <i class="fas fa-upload"></i> Upload de Arquivos (Em Breve)
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="support" class="content-panel-v3" style="display: none">
+          <h2><i class="fas fa-headset icon-title"></i> Canais de Suporte</h2>
+          <div class="support-info-card-v3">
+            <h3>Arquiteto de Sucesso Dedicado</h3>
+            <p>
+              <i class="fas fa-user-circle"></i> <strong>Nome:</strong> João
+              Silva
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <strong>E-mail:</strong> joao.silva@mindframe.com
+            </p>
+            <p>
+              <i class="fas fa-phone"></i> <strong>Telefone:</strong> (11)
+              99888-7766
+            </p>
+          </div>
+          <div class="support-note-v3">
+            <p>
+              O Suporte Técnico Prioritário (SLA) é garantido via e-mail direto
+              ao seu gerente de conta.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="dashboard-footer-v3">
+        <p>© 2025 MindFrame - Área Exclusiva do Cliente.</p>
+      </footer>
+    </div>
+
+    <script src="cliente.js"></script>
+  </body>
+</html>

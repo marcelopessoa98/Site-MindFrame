@@ -19,6 +19,7 @@
   --border-color: #333333; /* Linhas de separação sutis */
   --light-gray: #a0a0a0; /* Texto auxiliar */
   --secondary-bg: #1f1f1f; /* Fundo levemente mais claro para cards/blocos */
+  --error-red: #e74c3c; /* Cor para erros e validação */
 }
 
 body {
@@ -88,6 +89,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background 0.3s, box-shadow 0.3s; /* Adicionado para a rolagem */
 }
 
 .header-content-v7 {
@@ -496,4 +498,404 @@ body {
   color: var(--accent-blue);
   margin-right: 10px;
   font-size: 16px;
+}
+
+/* ========================================================== */
+/* ESTILOS PARA ANIMAÇÃO NATIVA (INTERSECTION OBSERVER) */
+/* ========================================================== */
+
+/* 1. Estado Inicial (Escondido) */
+.js-reveal {
+  opacity: 0;
+  transform: translateY(40px); /* Move 40px para baixo */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 2. Estado Ativo (Revelado) */
+.js-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. Variação de Origem (Top, Left, Right) */
+.js-reveal[data-animation-origin="top"] {
+  transform: translateY(-40px);
+}
+.js-reveal[data-animation-origin="left"] {
+  transform: translateX(-40px);
+}
+.js-reveal[data-animation-origin="right"] {
+  transform: translateX(40px);
+}
+.js-reveal[data-animation-origin="left"].revealed,
+.js-reveal[data-animation-origin="right"].revealed {
+  transform: translateX(0);
+}
+
+/* ========================================================== */
+/* ESTILOS ESPECÍFICOS DA PÁGINA DE PROPOSTA (FORMULÁRIO) */
+/* ========================================================== */
+
+.proposta-body {
+  padding-top: 75px; /* Compensa o header fixo */
+}
+
+.fixed-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.form-page-content {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+}
+
+.proposta-form-container {
+  max-width: 700px;
+  width: 100%;
+  background-color: var(--secondary-bg);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
+}
+
+.proposta-form-container .section-title-v7 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.form-intro {
+  color: var(--light-gray);
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* Estilização dos Grupos e Campos do Formulário */
+.form-group {
+  margin-bottom: 20px;
+  position: relative; /* Necessário para a mensagem de erro */
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--primary-text);
+}
+
+.form-proposta-v7 input[type="text"],
+.form-proposta-v7 input[type="email"],
+.form-proposta-v7 select,
+.form-proposta-v7 textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  color: var(--primary-text);
+  border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+.form-proposta-v7 input:focus,
+.form-proposta-v7 select:focus,
+.form-proposta-v7 textarea:focus {
+  border-color: var(--accent-blue);
+  outline: none;
+}
+
+/* Estado de Erro para Validação */
+.form-proposta-v7 input.error,
+.form-proposta-v7 select.error,
+.form-proposta-v7 textarea.error {
+  border-color: var(--error-red) !important;
+}
+
+.form-error-message {
+  color: var(--error-red);
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: none; /* Inicia escondido */
+}
+
+.form-proposta-v7 select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%233e8ede%22%20d%3D%22M287%20200.7L154.7%2057.9c-4.6-5.4-12.7-5.4-17.3%200L5.4%20200.7c-7%208.2-1.2%2021.2%209%2021.2h263.1c10.2%200%2016-13%209-21.2z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 10px;
+}
+
+.form-submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+}
+
+/* Estilo para Mensagem de Confirmação (após envio) */
+.confirmation-message-v7 {
+  text-align: center;
+  padding: 40px;
+  margin-top: 20px;
+  border: 2px solid var(--accent-blue);
+  border-radius: 8px;
+  background-color: #1c2a37;
+  box-shadow: 0 5px 20px rgba(62, 142, 222, 0.1);
+}
+
+.confirmation-message-v7 h2 {
+  color: var(--accent-blue);
+  font-size: 2em;
+  margin-top: 15px;
+}
+
+.confirmation-message-v7 p {
+  font-size: 1.1em;
+  font-weight: 400;
+  color: var(--primary-text);
+  margin: 20px 0 30px;
+}
+
+.logotipo-site-conf {
+  width: 60px;
+}
+
+/* ------------------------------------- */
+/* --- AJUSTES DE JS/COMPORTAMENTO --- */
+/* ------------------------------------- */
+
+/* Efeito de Header Rolado (Sticky Scroll) */
+.site-header-v7.scrolled {
+  background-color: rgba(23, 23, 23, 0.95); /* Leve transparência */
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  border-bottom: none;
+}
+
+/* Botão de Menu Mobile (Hambúrguer) - Inicia escondido */
+.menu-toggle {
+  display: none;
+  font-size: 1.8em;
+  color: var(--accent-blue);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* ------------------------------------- */
+/* --- MEDIA QUERIES (RESPONSIVIDADE) --- */
+/* ------------------------------------- */
+
+@media (max-width: 1050px) {
+  /* Esconde a navegação principal e mostra o botão de menu */
+  .site-nav-v7 {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    background-color: var(--secondary-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 20px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  /* O JS adiciona a classe 'active' para exibir o menu */
+  .site-nav-v7.active {
+    display: flex;
+  }
+
+  .nav-item-v7 {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    text-align: left;
+  }
+  .nav-item-v7:last-child {
+    border-bottom: none;
+  }
+
+  .header-content-v7 {
+    padding: 15px 40px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-actions-v7 {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-content-site-v7 {
+    padding: 0 20px;
+  }
+  .hero-v7 {
+    flex-direction: column;
+    padding: 60px 0;
+    min-height: auto;
+    gap: 40px;
+  }
+  .hero-text-block-v7 {
+    max-width: 100%;
+    text-align: center;
+  }
+  .hero-text-block-v7 h1 {
+    font-size: 2.5em;
+  }
+  .hero-visual-v7 {
+    width: 100%;
+  }
+  .tech-grid-v7 {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .feedback-grid-v7,
+  .solucoes-grid-v7 {
+    grid-template-columns: 1fr;
+  }
+  .process-steps-v7 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .step-v7 {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .step-v7:nth-child(even) {
+    border-right: none;
+  }
+  .footer-info-v7 {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .footer-contact-v7 {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text-block-v7 h1 {
+    font-size: 2em;
+  }
+  .tech-item-v7 {
+    width: 45%;
+  }
+}
+
+/* ... [Mantenha todo o seu código CSS anterior aqui] ... */
+
+/* ========================================================== */
+/* ESTILOS DO FORMULÁRIO DE ENVIO DE FEEDBACK (NOVO) */
+/* ========================================================== */
+.feedback-submission-v7 {
+  padding: 60px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.form-feedback-v7 {
+  max-width: 600px;
+  margin: 40px auto 0;
+  background-color: var(--secondary-bg);
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.form-group-feedback {
+  margin-bottom: 20px;
+}
+
+.form-group-feedback label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--primary-text);
+}
+
+.form-feedback-v7 input[type="text"],
+.form-feedback-v7 input[type="email"],
+.form-feedback-v7 select,
+.form-feedback-v7 textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  color: var(--primary-text);
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.form-submit-btn-sm {
+  padding: 12px 25px;
+  font-size: 1em;
+  font-weight: 700;
+  width: 100%;
+}
+
+.submission-success-message {
+  color: #90ee90; /* Verde de sucesso */
+  font-weight: 600;
+  margin-top: 15px;
+  text-align: center;
+}
+/* ESTILIZAÇÃO DO FEEDBACK DE AVALIAÇÕES ******************************************************/
+
+/* ========================================================== */
+/* ESTILOS PARA O MODAL DE SUCESSO DE FEEDBACK */
+/* ========================================================== */
+
+.modal-overlay {
+  /* Ocupa a tela toda e fica por cima de tudo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.modal-content {
+  background-color: #1a1a2e; /* Cor do fundo do bloco (como o formulário de proposta) */
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 400px;
+  border: 1px solid #00c4ff55; /* Borda de destaque */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-icon {
+  /* Ajuste o tamanho do ícone que você vai usar */
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  /* Substitua pela imagem que você usar ou use um ícone FontAwesome */
+}
+
+.modal-title-success {
+  font-size: 1.8rem;
+  color: #00c4ff; /* Cor de destaque azul */
+  margin-bottom: 15px;
+}
+
+.modal-message {
+  font-size: 1rem;
+  margin-bottom: 30px;
 }
